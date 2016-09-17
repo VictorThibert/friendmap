@@ -1,9 +1,11 @@
 
 var express = require("express");
 var bodyParser = require('body-parser')
-var morgan = require('morgan')
 var app = express();
 
+var morgan = require('morgan')
+var passport = require('passport')
+var LocalStrategy = require('passport-local').Strategy;
 
 
 // -------------------------------------------------- start middleware --------------------------------------------------
@@ -13,10 +15,6 @@ app.use(bodyParser.json())
 
 // debugging tools
 app.use(morgan('combined'))
-
-// auth
-app.use(passport.initialize());
-app.use(passport.session());
 
 // -------------------------------------------------- stop middleware --------------------------------------------------
 
