@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from 'react-native-button';
 import Hr from 'react-native-hr';
 import { AppRegistry, Text, Image, View, StyleSheet, TextInput, ScrollView, Navigator, AlertIOS } from 'react-native';
-
+import BackgroundImage from "./BackgroundImage";
 
 class friendmapclient extends Component {
  
@@ -22,13 +22,16 @@ class friendmapclient extends Component {
   }
 
   render() {
+    let pic = {
+      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+    };
     return (
-      <View style={{padding: 10}}>
+      <BackgroundImage source={ { uri: 'https://s-media-cache-ak0.pinimg.com/originals/76/4f/86/764f863306caae67a9f1ba245bde39df.jpg'}}>
+      <View style={{padding:40, paddingTop: 100}}>
         <Text style={styles.title}>Friendmap</Text>
         <Text style={styles.subtitle}>Welcome</Text>
-        <Text style={styles.paragraph}>Existing users sign in below</Text>
         <TextInput
-          style={{height: 40, top: 80, backgroundColor: "#f4f4f4", padding: 8}}
+          style={{height: 40, top: 80, backgroundColor: "#f4f4f4", padding: 8, borderRadius: 3}}
           placeholder="Username"
           autoCorrect = {false}
           autoCapitalize = {'none'}
@@ -36,7 +39,7 @@ class friendmapclient extends Component {
           onChangeText={(newtext) => this.setState({username: newtext})}
         />
         <TextInput
-          style={{height: 40, top: 90, backgroundColor: "#f4f4f4", padding: 8}}
+          style={{height: 40, top: 90, backgroundColor: "#f4f4f4", padding: 8, borderRadius: 3}}
           secureTextEntry={true}
           placeholder="Password"
           autoCorrect = {false}
@@ -52,13 +55,13 @@ class friendmapclient extends Component {
           Login
         </Button>
         <Text style={styles.regSubtitle}>New to Friendmap?</Text>
-        <Text style={styles.regParagraph}>Click below to register</Text>
         <Button
-        containerStyle={{padding:10, top: 130, height:45, overflow:'hidden', borderRadius:4, backgroundColor: '#4cdc94'}}
-        style={{fontSize: 20, color: '#ffffff'}}>
+        containerStyle={{padding:10, top: 200, height:35, overflow:'hidden', borderRadius:4, backgroundColor: 'rgba(0,0,0,0)'}}
+        style={{fontSize: 20, color: 'white'}}>
         Register
       </Button>
       </View>
+      </BackgroundImage>
     );
   }
 }
@@ -81,34 +84,49 @@ function sendLogin(username, password){
   }
 
 const styles = StyleSheet.create({
+  backgroundImage:{
+    width: 100,
+    height: 100,
+  },
   title: {
-    color: '#666666',
-    fontSize: 30,
+    textAlign: 'center',
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: 'white',
+    fontSize: 40,
+    fontWeight: 'bold',
     top: 15,
   },
   subtitle: {
-    color: '#666666',
+    textAlign: 'center',
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: 'white',
     fontSize: 22,
     top: 70,
   },
   paragraph: {
-    color: '#b2b2b2',
+    textAlign: 'center',
+    backgroundColor: 'rgba(0,0,0,0)',
+    color: 'white',
     fontSize: 15,
     top: 70,
   },
   regSubtitle: {
-    color: '#666666',
+    backgroundColor: 'rgba(0,0,0,0)',
+    textAlign: 'center',
+    color: 'white',
     fontSize: 18,
-    top: 120,
+    top: 180,
   },
   regParagraph: {
-    color: '#b2b2b2',
+    backgroundColor: 'rgba(0,0,0,0)',
+    textAlign: 'center',
+    color: 'white',
     fontSize: 15,
-    top: 120,
+    top: 140,
   },
   backgroundImage:{
     flex: 1,
-    resizeMode: 'cover',
+    resizeMode: 'stretch',
   }
 });
 
