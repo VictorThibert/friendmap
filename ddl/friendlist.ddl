@@ -1,4 +1,6 @@
+set database=friendmap;
+
 CREATE TABLE friends(
- id INT NOT NULL REFERENCES profile,
+ id INT PRIMARY KEY REFERENCES profile,
  friendID INT NOT NULL
-)
+);
