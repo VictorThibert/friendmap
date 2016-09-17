@@ -12,7 +12,14 @@ router.get('/getForUser', function(req, res) {
   console.log("/inside delete");
   res.send("inside add");
 });
+
 router.get('/getAll', function(req, res){
+  console.log("/view");
+  res.send("inside view");
+});
+
+
+router.get('/delete', function(req, res){
   console.log("/view");
   res.send("inside view");
 });
