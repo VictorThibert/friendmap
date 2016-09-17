@@ -1,0 +1,4 @@
+CREATE TABLE friends(
+ id INT NOT NULL REFERENCES profile,
+ friendID INT NOT NULL
+)
