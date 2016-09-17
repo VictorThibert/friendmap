@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 import Button from 'react-native-button';
 import Hr from 'react-native-hr';
-import { AppRegistry, StyleSheet, Text, TextInput, View } from 'react-native';
+import { AppRegistry, Text, Image, View, StyleSheet, TextInput, ScrollView, Navigator, AlertIOS } from 'react-native';
 
-class TestProject extends Component {
+
+class friendmapclient extends Component {
+ 
   constructor(props) {
     super(props);
-    this.state = {text: ''};
+    this.state = {
+      text: '',
+      username: '',
+      password: ''
+    };
+  }
+  
+  _handlePress(event) {
+    let username=this.state.username;
+    let password=this.state.password;
+    sendLogin(username, password);
   }
 
   render() {
@@ -18,18 +30,27 @@ class TestProject extends Component {
         <TextInput
           style={{height: 40, top: 80, backgroundColor: "#f4f4f4", padding: 8}}
           placeholder="Username"
+          autoCorrect = {false}
+          autoCapitalize = {'none'}
+          maxLength = {16}
+          onChangeText={(newtext) => this.setState({username: newtext})}
         />
-         <TextInput
+        <TextInput
           style={{height: 40, top: 90, backgroundColor: "#f4f4f4", padding: 8}}
           secureTextEntry={true}
           placeholder="Password"
+          autoCorrect = {false}
+          autoCapitalize = {'none'}
+          maxLength = {16}
+          onChangeText={(newtext) => this.setState({password: newtext})}
         />
         <Button
-        containerStyle={{padding:10, top: 100, height:45, overflow:'hidden', borderRadius:4, backgroundColor: '#4cdc94'}}
-        style={{fontSize: 20, color: '#ffffff'}}
+          containerStyle={{padding:10, top: 100, height:45, overflow:'hidden', borderRadius:4, backgroundColor: '#4cdc94'}}
+          style={{fontSize: 20, color: '#ffffff'}}
+          onPress={() => this._handlePress()}
         >
-        Login
-      </Button>
+          Login
+        </Button>
         <Text style={styles.regSubtitle}>New to Friendmap?</Text>
         <Text style={styles.regParagraph}>Click below to register</Text>
         <Button
@@ -41,6 +62,23 @@ class TestProject extends Component {
     );
   }
 }
+
+function sendLogin(username, password){
+    console.log(username, password)
+    fetch('http://45.55.166.191:3020/test', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      })
+    })
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));   
+  }
 
 const styles = StyleSheet.create({
   title: {
@@ -74,4 +112,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('TestProject', () => TestProject);
+AppRegistry.registerComponent('friendmapclient', () => friendmapclient);

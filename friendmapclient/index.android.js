@@ -1,53 +1,89 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+  import React, { Component, LA } from 'react';
+  import { AppRegistry, Text, Image, View, StyleSheet, TextInput, ScrollView, Navigator, AlertIOS } from 'react-native';
+  import Button from 'react-native-button';
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-
-class friendmapclient extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
+  class friendmapclient extends Component {
+    
+    constructor(props) {
+      super(props)
+      this.state = {
+        username: '',
+        password: ''
+      }
+    }
+    
+    _handlePress(event) {
+      let username=this.state.username;
+      let password=this.state.password;
+      sendLogin(username, password);
+    }
+    
+    render() {
+      return (
+          <View style={{padding: 10}}>
+            <TextInput
+              style={{height: 40}}
+              onChangeText={(newtext) => this.setState({username: newtext})}
+              placeholder="Username"
+              autoCorrect = {false}
+              autoCapitalize = {'none'}
+              maxLength = {16}
+            />
+            <TextInput
+              style={{height: 40}}
+              onChangeText={(newtext) => this.setState({password: newtext})}
+              placeholder="Password"
+              autoCorrect = {false}
+              autoCapitalize = {'none'}
+              maxLength = {16}
+            />
+            <Button
+              containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: '#5BC0BE'}}
+              style={{fontSize: 20, color: '#ffffff'}}
+              onPress={() => this._handlePress()}>
+              Login
+            </Button>
+            <Button
+              containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: '#5BC0BE'}}
+              style={{fontSize: 20, color: '#ffffff'}}>
+              Register
+            </Button>
+        </View>
+      );
+    }
   }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+  function sendLogin(username, password){
+    console.log(username, password)
+    fetch('http://45.55.166.191:3020/test', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      })
+    })
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));   
+  }
 
-AppRegistry.registerComponent('friendmapclient', () => friendmapclient);
+  const styles = StyleSheet.create({
+    bigblue: {
+      color: 'blue',
+      fontWeight: 'bold',
+      fontSize: 30,
+    },
+    red: {
+      color: 'red',
+      fontSize: 20,
+    },
+    size1: {
+      width: 400,
+      height: 400
+    }
+  });
+
+  AppRegistry.registerComponent('friendmapclient', () => friendmapclient);
