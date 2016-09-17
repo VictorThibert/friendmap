@@ -14,7 +14,7 @@
   }
 
 
-  class friendmapAPP extends Component {
+  class friendmapclient extends Component {
     render() {
       let pic = {
         uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
@@ -86,4 +86,4 @@
     }
   });
 
-  AppRegistry.registerComponent('friendmapAPP', () => friendmapAPP);
+  AppRegistry.registerComponent('friendmapclient', () => friendmapclient);

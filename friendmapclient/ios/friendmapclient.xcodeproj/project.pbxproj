@@ -13,23 +13,6 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* friendmapclientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* friendmapclientTests.m */; };
-		0BD7E7551D8D84C1004C7F70 /* GoogleMapsApi.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BD7E7541D8D84C1004C7F70 /* GoogleMapsApi.plist */; };
-		0BD7E7651D8D8593004C7F70 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0BD7E7561D8D8593004C7F70 /* GoogleMaps.bundle */; };
-		0BD7E7661D8D8593004C7F70 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E7571D8D8593004C7F70 /* GoogleMaps.framework */; };
-		0BD7E7671D8D8593004C7F70 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E7581D8D8593004C7F70 /* libz.1.dylib */; };
-		0BD7E7681D8D8593004C7F70 /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E7591D8D8593004C7F70 /* libicucore.A.dylib */; };
-		0BD7E7691D8D8593004C7F70 /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E75A1D8D8593004C7F70 /* libc++.1.dylib */; };
-		0BD7E76A1D8D8593004C7F70 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E75B1D8D8593004C7F70 /* Accelerate.framework */; };
-		0BD7E76B1D8D8593004C7F70 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E75C1D8D8593004C7F70 /* CoreBluetooth.framework */; };
-		0BD7E76C1D8D8593004C7F70 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E75D1D8D8593004C7F70 /* SystemConfiguration.framework */; };
-		0BD7E76D1D8D8593004C7F70 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E75E1D8D8593004C7F70 /* QuartzCore.framework */; };
-		0BD7E76E1D8D8593004C7F70 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E75F1D8D8593004C7F70 /* OpenGLES.framework */; };
-		0BD7E76F1D8D8593004C7F70 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E7601D8D8593004C7F70 /* ImageIO.framework */; };
-		0BD7E7701D8D8593004C7F70 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E7611D8D8593004C7F70 /* GLKit.framework */; };
-		0BD7E7711D8D8593004C7F70 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E7621D8D8593004C7F70 /* CoreLocation.framework */; };
-		0BD7E7721D8D8593004C7F70 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E7631D8D8593004C7F70 /* CoreData.framework */; };
-		0BD7E7731D8D8593004C7F70 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E7641D8D8593004C7F70 /* AVFoundation.framework */; };
-		0BD7E7741D8D85C0004C7F70 /* libPPTMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD7E7531D8D847B004C7F70 /* libPPTMapView.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -39,6 +22,23 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		2AA8B9FC1D8DAA9A000234D6 /* GoogleMapsApi.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AA8B9FB1D8DAA9A000234D6 /* GoogleMapsApi.plist */; };
+		2AA8BA0C1D8DAABC000234D6 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AA8B9FD1D8DAABC000234D6 /* GoogleMaps.bundle */; };
+		2AA8BA0D1D8DAABC000234D6 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8B9FE1D8DAABC000234D6 /* GoogleMaps.framework */; };
+		2AA8BA0E1D8DAABC000234D6 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8B9FF1D8DAABC000234D6 /* libz.1.dylib */; };
+		2AA8BA0F1D8DAABC000234D6 /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8BA001D8DAABC000234D6 /* libicucore.A.dylib */; };
+		2AA8BA101D8DAABC000234D6 /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8BA011D8DAABC000234D6 /* libc++.1.dylib */; };
+		2AA8BA111D8DAABC000234D6 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8BA021D8DAABC000234D6 /* Accelerate.framework */; };
+		2AA8BA121D8DAABC000234D6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8BA031D8DAABC000234D6 /* CoreBluetooth.framework */; };
+		2AA8BA131D8DAABC000234D6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8BA041D8DAABC000234D6 /* SystemConfiguration.framework */; };
+		2AA8BA141D8DAABC000234D6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8BA051D8DAABC000234D6 /* QuartzCore.framework */; };
+		2AA8BA151D8DAABC000234D6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8BA061D8DAABC000234D6 /* OpenGLES.framework */; };
+		2AA8BA161D8DAABC000234D6 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8BA071D8DAABC000234D6 /* ImageIO.framework */; };
+		2AA8BA171D8DAABC000234D6 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8BA081D8DAABC000234D6 /* GLKit.framework */; };
+		2AA8BA181D8DAABC000234D6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8BA091D8DAABC000234D6 /* CoreLocation.framework */; };
+		2AA8BA191D8DAABC000234D6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8BA0A1D8DAABC000234D6 /* CoreData.framework */; };
+		2AA8BA1A1D8DAABC000234D6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8BA0B1D8DAABC000234D6 /* AVFoundation.framework */; };
+		2AA8BA1B1D8DAAC8000234D6 /* libPPTMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA8B9F81D8DAA7D000234D6 /* libPPTMapView.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -85,13 +85,6 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = friendmapclient;
 		};
-		0BD7E7521D8D847B004C7F70 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0BD7E74E1D8D847B004C7F70 /* PPTMapView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = PPTMapView;
-		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */;
@@ -112,6 +105,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
+		};
+		2AA8B9F71D8DAA7D000234D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AA8B9F31D8DAA7D000234D6 /* PPTMapView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = PPTMapView;
 		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -139,23 +139,6 @@
 		00E356EE1AD99517003FC87E /* friendmapclientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = friendmapclientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* friendmapclientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = friendmapclientTests.m; sourceTree = "<group>"; };
-		0BD7E74E1D8D847B004C7F70 /* PPTMapView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PPTMapView.xcodeproj; path = "../node_modules/react-native-maps-google/ios/PPTMapView.xcodeproj"; sourceTree = "<group>"; };
-		0BD7E7541D8D84C1004C7F70 /* GoogleMapsApi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = GoogleMapsApi.plist; path = "../node_modules/react-native-maps-google/ios/GoogleMapsApi.plist"; sourceTree = "<group>"; };
-		0BD7E7561D8D8593004C7F70 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "/Users/bbaksh/brandon/friendmap/friendmapclient/node_modules/react-native-maps-google/ios/../ios_modules/GoogleMaps-1.13.2/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<absolute>"; };
-		0BD7E7571D8D8593004C7F70 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "/Users/bbaksh/brandon/friendmap/friendmapclient/node_modules/react-native-maps-google/ios/../ios_modules/GoogleMaps-1.13.2/Frameworks/GoogleMaps.framework"; sourceTree = "<absolute>"; };
-		0BD7E7581D8D8593004C7F70 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<absolute>"; };
-		0BD7E7591D8D8593004C7F70 /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = /usr/lib/libicucore.A.dylib; sourceTree = "<absolute>"; };
-		0BD7E75A1D8D8593004C7F70 /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "/usr/lib/libc++.1.dylib"; sourceTree = "<absolute>"; };
-		0BD7E75B1D8D8593004C7F70 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		0BD7E75C1D8D8593004C7F70 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		0BD7E75D1D8D8593004C7F70 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		0BD7E75E1D8D8593004C7F70 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		0BD7E75F1D8D8593004C7F70 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		0BD7E7601D8D8593004C7F70 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		0BD7E7611D8D8593004C7F70 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		0BD7E7621D8D8593004C7F70 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		0BD7E7631D8D8593004C7F70 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		0BD7E7641D8D8593004C7F70 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* friendmapclient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = friendmapclient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +149,23 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = friendmapclient/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = friendmapclient/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		2AA8B9F31D8DAA7D000234D6 /* PPTMapView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PPTMapView.xcodeproj; path = "../node_modules/react-native-maps-google/ios/PPTMapView.xcodeproj"; sourceTree = "<group>"; };
+		2AA8B9FB1D8DAA9A000234D6 /* GoogleMapsApi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = GoogleMapsApi.plist; path = "../node_modules/react-native-maps-google/ios/GoogleMapsApi.plist"; sourceTree = "<group>"; };
+		2AA8B9FD1D8DAABC000234D6 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "/Users/victorthibert/Projects/friendmapwrap/friendmap/friendmapclient/node_modules/react-native-maps-google/ios/../ios_modules/GoogleMaps-1.13.2/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<absolute>"; };
+		2AA8B9FE1D8DAABC000234D6 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "/Users/victorthibert/Projects/friendmapwrap/friendmap/friendmapclient/node_modules/react-native-maps-google/ios/../ios_modules/GoogleMaps-1.13.2/Frameworks/GoogleMaps.framework"; sourceTree = "<absolute>"; };
+		2AA8B9FF1D8DAABC000234D6 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<absolute>"; };
+		2AA8BA001D8DAABC000234D6 /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = /usr/lib/libicucore.A.dylib; sourceTree = "<absolute>"; };
+		2AA8BA011D8DAABC000234D6 /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "/usr/lib/libc++.1.dylib"; sourceTree = "<absolute>"; };
+		2AA8BA021D8DAABC000234D6 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
+		2AA8BA031D8DAABC000234D6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = "<absolute>"; };
+		2AA8BA041D8DAABC000234D6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<absolute>"; };
+		2AA8BA051D8DAABC000234D6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		2AA8BA061D8DAABC000234D6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = "<absolute>"; };
+		2AA8BA071D8DAABC000234D6 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = "<absolute>"; };
+		2AA8BA081D8DAABC000234D6 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/GLKit.framework; sourceTree = "<absolute>"; };
+		2AA8BA091D8DAABC000234D6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = "<absolute>"; };
+		2AA8BA0A1D8DAABC000234D6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		2AA8BA0B1D8DAABC000234D6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = "<absolute>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,30 +183,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BD7E7741D8D85C0004C7F70 /* libPPTMapView.a in Frameworks */,
+				2AA8BA1B1D8DAAC8000234D6 /* libPPTMapView.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
-				0BD7E7691D8D8593004C7F70 /* libc++.1.dylib in Frameworks */,
-				0BD7E76B1D8D8593004C7F70 /* CoreBluetooth.framework in Frameworks */,
+				2AA8BA101D8DAABC000234D6 /* libc++.1.dylib in Frameworks */,
+				2AA8BA121D8DAABC000234D6 /* CoreBluetooth.framework in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
-				0BD7E7701D8D8593004C7F70 /* GLKit.framework in Frameworks */,
-				0BD7E76F1D8D8593004C7F70 /* ImageIO.framework in Frameworks */,
+				2AA8BA171D8DAABC000234D6 /* GLKit.framework in Frameworks */,
+				2AA8BA161D8DAABC000234D6 /* ImageIO.framework in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
-				0BD7E7731D8D8593004C7F70 /* AVFoundation.framework in Frameworks */,
-				0BD7E76E1D8D8593004C7F70 /* OpenGLES.framework in Frameworks */,
+				2AA8BA1A1D8DAABC000234D6 /* AVFoundation.framework in Frameworks */,
+				2AA8BA151D8DAABC000234D6 /* OpenGLES.framework in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
-				0BD7E76D1D8D8593004C7F70 /* QuartzCore.framework in Frameworks */,
-				0BD7E7711D8D8593004C7F70 /* CoreLocation.framework in Frameworks */,
+				2AA8BA141D8DAABC000234D6 /* QuartzCore.framework in Frameworks */,
+				2AA8BA181D8DAABC000234D6 /* CoreLocation.framework in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
-				0BD7E7661D8D8593004C7F70 /* GoogleMaps.framework in Frameworks */,
-				0BD7E76C1D8D8593004C7F70 /* SystemConfiguration.framework in Frameworks */,
+				2AA8BA0D1D8DAABC000234D6 /* GoogleMaps.framework in Frameworks */,
+				2AA8BA131D8DAABC000234D6 /* SystemConfiguration.framework in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
-				0BD7E7681D8D8593004C7F70 /* libicucore.A.dylib in Frameworks */,
-				0BD7E76A1D8D8593004C7F70 /* Accelerate.framework in Frameworks */,
-				0BD7E7671D8D8593004C7F70 /* libz.1.dylib in Frameworks */,
-				0BD7E7721D8D8593004C7F70 /* CoreData.framework in Frameworks */,
+				2AA8BA0F1D8DAABC000234D6 /* libicucore.A.dylib in Frameworks */,
+				2AA8BA111D8DAABC000234D6 /* Accelerate.framework in Frameworks */,
+				2AA8BA0E1D8DAABC000234D6 /* libz.1.dylib in Frameworks */,
+				2AA8BA191D8DAABC000234D6 /* CoreData.framework in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,14 +271,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0BD7E74F1D8D847B004C7F70 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0BD7E7531D8D847B004C7F70 /* libPPTMapView.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		139105B71AF99BAD00B5F7CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,7 +290,7 @@
 		13B07FAE1A68108700A75B9A /* friendmapclient */ = {
 			isa = PBXGroup;
 			children = (
-				0BD7E7541D8D84C1004C7F70 /* GoogleMapsApi.plist */,
+				2AA8B9FB1D8DAA9A000234D6 /* GoogleMapsApi.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -318,6 +310,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2AA8B9F41D8DAA7D000234D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AA8B9F81D8DAA7D000234D6 /* libPPTMapView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,22 +329,22 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				0BD7E7561D8D8593004C7F70 /* GoogleMaps.bundle */,
-				0BD7E7571D8D8593004C7F70 /* GoogleMaps.framework */,
-				0BD7E7581D8D8593004C7F70 /* libz.1.dylib */,
-				0BD7E7591D8D8593004C7F70 /* libicucore.A.dylib */,
-				0BD7E75A1D8D8593004C7F70 /* libc++.1.dylib */,
-				0BD7E75B1D8D8593004C7F70 /* Accelerate.framework */,
-				0BD7E75C1D8D8593004C7F70 /* CoreBluetooth.framework */,
-				0BD7E75D1D8D8593004C7F70 /* SystemConfiguration.framework */,
-				0BD7E75E1D8D8593004C7F70 /* QuartzCore.framework */,
-				0BD7E75F1D8D8593004C7F70 /* OpenGLES.framework */,
-				0BD7E7601D8D8593004C7F70 /* ImageIO.framework */,
-				0BD7E7611D8D8593004C7F70 /* GLKit.framework */,
-				0BD7E7621D8D8593004C7F70 /* CoreLocation.framework */,
-				0BD7E7631D8D8593004C7F70 /* CoreData.framework */,
-				0BD7E7641D8D8593004C7F70 /* AVFoundation.framework */,
-				0BD7E74E1D8D847B004C7F70 /* PPTMapView.xcodeproj */,
+				2AA8B9FD1D8DAABC000234D6 /* GoogleMaps.bundle */,
+				2AA8B9FE1D8DAABC000234D6 /* GoogleMaps.framework */,
+				2AA8B9FF1D8DAABC000234D6 /* libz.1.dylib */,
+				2AA8BA001D8DAABC000234D6 /* libicucore.A.dylib */,
+				2AA8BA011D8DAABC000234D6 /* libc++.1.dylib */,
+				2AA8BA021D8DAABC000234D6 /* Accelerate.framework */,
+				2AA8BA031D8DAABC000234D6 /* CoreBluetooth.framework */,
+				2AA8BA041D8DAABC000234D6 /* SystemConfiguration.framework */,
+				2AA8BA051D8DAABC000234D6 /* QuartzCore.framework */,
+				2AA8BA061D8DAABC000234D6 /* OpenGLES.framework */,
+				2AA8BA071D8DAABC000234D6 /* ImageIO.framework */,
+				2AA8BA081D8DAABC000234D6 /* GLKit.framework */,
+				2AA8BA091D8DAABC000234D6 /* CoreLocation.framework */,
+				2AA8BA0A1D8DAABC000234D6 /* CoreData.framework */,
+				2AA8BA0B1D8DAABC000234D6 /* AVFoundation.framework */,
+				2AA8B9F31D8DAA7D000234D6 /* PPTMapView.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
@@ -455,8 +455,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 0BD7E74F1D8D847B004C7F70 /* Products */;
-					ProjectRef = 0BD7E74E1D8D847B004C7F70 /* PPTMapView.xcodeproj */;
+					ProductGroup = 2AA8B9F41D8DAA7D000234D6 /* Products */;
+					ProjectRef = 2AA8B9F31D8DAA7D000234D6 /* PPTMapView.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
@@ -543,13 +543,6 @@
 			remoteRef = 00C302E31ABCB9EE00DB3ED1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0BD7E7531D8D847B004C7F70 /* libPPTMapView.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libPPTMapView.a;
-			remoteRef = 0BD7E7521D8D847B004C7F70 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		139105C11AF99BAD00B5F7CC /* libRCTSettings.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -569,6 +562,13 @@
 			fileType = archive.ar;
 			path = libReact.a;
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AA8B9F81D8DAA7D000234D6 /* libPPTMapView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPPTMapView.a;
+			remoteRef = 2AA8B9F71D8DAA7D000234D6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
@@ -599,10 +599,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BD7E7551D8D84C1004C7F70 /* GoogleMapsApi.plist in Resources */,
+				2AA8B9FC1D8DAA9A000234D6 /* GoogleMapsApi.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				0BD7E7651D8D8593004C7F70 /* GoogleMaps.bundle in Resources */,
+				2AA8BA0C1D8DAABC000234D6 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
