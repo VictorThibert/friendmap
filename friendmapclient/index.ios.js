@@ -15,21 +15,23 @@ import {
   Button
 } from 'react-native';
 
-class friendmap extends Component {
+import GoogleMap  from 'react-native-maps-google';
+
+class friendmapclient extends Component {
   render() {
     return (
-     <View style={styles.container}>
-       <Text style={styles.welcome}>
-        friendmap
-       </Text>
-
-       <MapView
+     //<MapView style={styles.map}/>
+     <GoogleMap
          style={styles.map}
          showsUserLocation={true}
-         rotateEnabled={true}
-         showCompass={true}
-       />
-     </View>
+         scrollGestures={true}
+         zoomGestures={true}
+         tiltGestures={true}
+         rotateGestures={true}
+         consumesGesturesInView={true}
+         compassButton={true}
+         myLocationButton={true}
+     />
     );
   }
 }
@@ -65,4 +67,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('friendmap', () => friendmap);
+AppRegistry.registerComponent('friendmapclient', () => friendmapclient);
