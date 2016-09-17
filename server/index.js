@@ -1,19 +1,19 @@
 var pg = require('pg');
 var async = require('async');
- 
-// instantiate a new client 
-// the client will read connection information from 
-// the same environment variables used by postgres cli tools 
+
+// instantiate a new client
+// the client will read connection information from
+// the same environment variables used by postgres cli tools
 
 var config = {
-  user: 'root', //env var: PGUSER 
-  database: 'fuck', //env var: PGDATABASE 
-  //host: '45.55.166.191',
-  host: 'localhost',
-  //password: 'secret', //env var: PGPASSWORD 
-  port: 26257 //env var: PGPORT 
+  user: 'root', //env var: PGUSER
+  database: 'fuck', //env var: PGDATABASE
+  host: '45.55.166.191',
+  // host: 'localhost',
+  //password: 'secret', //env var: PGPASSWORD
+  port: 26257 //env var: PGPORT
 };
- 
+
 pg.connect(config, function (err, client, done) {
   // Closes communication with the database and exits.
   var finish = function () {
@@ -28,11 +28,11 @@ pg.connect(config, function (err, client, done) {
   async.waterfall([
     function (next) {
       // Insert two rows into the "accounts" table.
-      client.query("INSERT INTO accounts (id, balance) VALUES (1, 1000), (2, 250);", next);
+      client.query("INSERT INTO el (id, name) VALUES (1, 'pickle'), (2, 'bruh');", next);
     },
     function (results, next) {
       // Print out the balances.
-      client.query('SELECT id, balance FROM accounts;', next);
+      client.query('SELECT id, name FROM el;', next);
     },
   ],
   function (err, results) {
