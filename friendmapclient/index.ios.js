@@ -13,15 +13,17 @@
           <View style={{padding: 10}}>
             <TextInput
               style={{height: 40}}
-              onChangeText={(username) => this.setState({username})}
+              onChangeText={(newtext) => this.setState({username: newtext})}
               placeholder="Username"
               autoCorrect = {false}
+              autoCapitalize = {false}
             />
             <TextInput
               style={{height: 40}}
-              onChangeText={(password) => this.setState({password})}
+              onChangeText={(newtext) => this.setState({password: newtext})}
               placeholder="Password"
               autoCorrect = {false}
+              autoCapitalize = {false}
             />
             <Button
               containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: '#5BC0BE'}}
