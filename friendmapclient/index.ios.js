@@ -2,37 +2,31 @@
   import { AppRegistry, Text, Image, View, StyleSheet, TextInput, ScrollView, Navigator, AlertIOS } from 'react-native';
   import Button from 'react-native-button';
 
-
-
-
-  class Greeting extends Component {
-    render() {
-      return (
-        <Text>Hello {this.props.name}!</Text>
-      );
-    }
-  }
-
-
   class friendmapclient extends Component {
+    _handlePress(event) {
+      let username=this.state.username;
+      let password=this.state.password;
+      console.log(username, password)
+    }
     render() {
-      let pic = {
-        uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-      };
       return (
-
           <View style={{padding: 10}}>
             <TextInput
               style={{height: 40}}
+              onChangeText={(username) => this.setState({username})}
               placeholder="Username"
+              autoCorrect = {false}
             />
-             <TextInput
+            <TextInput
               style={{height: 40}}
+              onChangeText={(password) => this.setState({password})}
               placeholder="Password"
+              autoCorrect = {false}
             />
             <Button
               containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: '#5BC0BE'}}
-              style={{fontSize: 20, color: '#ffffff'}}>
+              style={{fontSize: 20, color: '#ffffff'}}
+              onPress={() => this._handlePress()}>
               Login
             </Button>
             <Button
@@ -40,34 +34,29 @@
               style={{fontSize: 20, color: '#ffffff'}}>
               Register
             </Button>
-          <TextInput style={[styles.bigblue, {height: 40, width: 200}]} placeholder="Type here to translate!" onChangeText={sendText}/>
         </View>
-
-
       );
     }
-
   }
 
-
-
+  function sendLogin(){
+    
+  }
 
   function sendText(text){
     fetch('http://45.55.166.191:3020/test', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      firstParam: 'hello AHMED;',
-      secondParam: text,
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: 'hello AHMED;',
+        password: text,
     })
-  }).then((response) => console.log(response)).catch((error) => {
+    }).then((response) => console.log(response)).catch((error) => {
       console.log(error);
     })
-
-
   }
 
   const styles = StyleSheet.create({
