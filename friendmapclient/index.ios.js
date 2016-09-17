@@ -1,89 +1,104 @@
-  import React, { Component, LA } from 'react';
-  import { AppRegistry, Text, Image, View, StyleSheet, TextInput, ScrollView, Navigator, AlertIOS } from 'react-native';
-  import Button from 'react-native-button';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
+'use strict';
+
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  MapView,
+  Button
+} from 'react-native';
+
+import GoogleMap  from 'react-native-maps-google';
 
 
+class friendmapclient extends Component {
+  render() {
+      console.log("Hello World")
+    return (
+     <View style={styles.container}>
+         <GoogleMap
+             style={styles.map}
+             cameraPosition={{auto: true, zoom: 10}}
+             showsUserLocation={true}
+             scrollGestures={true}
+             zoomGestures={true}
+             tiltGestures={true}
+             rotateGestures={true}
+             consumesGesturesInView={true}
+             compassButton={true}
+             myLocationButton={true}
+             indoorPicker={true}
+             allowScrollGesturesDuringRotateOrZoom={true}
+             counter={23}
+             markers={[
+                 {
+                    id: 'marker-102',
+                    latitude: 21.7342,
+                    longitude: -5.7350,
+                    icon: require('./images/map-marker-5.png')
+                },
+             ]}
+
+             didLongPressAtCoordinate={function(event){
+                 console.log(event.data)
+                 console.log("####", this.counter)
+                //  this.markers.append({
+                //      id:this.counter++,
+                //      latitude: event.data.latitude,
+                //      longitude: event.data.longitude
+                //  })
+             }}
 
 
-  class Greeting extends Component {
-    render() {
-      return (
-        <Text>Hello {this.props.name}!</Text>
-      );
-    }
+         />
+     </View>
+    );
   }
+}
 
 
-  class friendmapclient extends Component {
-    render() {
-      let pic = {
-        uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-      };
-      return (
-
-          <View style={{padding: 10}}>
-            <TextInput
-              style={{height: 40}}
-              placeholder="Username"
-            />
-             <TextInput
-              style={{height: 40}}
-              placeholder="Password"
-            />
-            <Button
-              containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: '#5BC0BE'}}
-              style={{fontSize: 20, color: '#ffffff'}}>
-              Login
-            </Button>
-            <Button
-              containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: '#5BC0BE'}}
-              style={{fontSize: 20, color: '#ffffff'}}>
-              Register
-            </Button>
-          <TextInput style={[styles.bigblue, {height: 40, width: 200}]} placeholder="Type here to translate!" onChangeText={sendText}/>
-        </View>
-
-
-      );
-    }
-
+const styles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 5,
+    paddingTop: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+  button:{
+   alignSelf: 'center',
+   marginTop: 5,
+   padding: 3,
+   borderWidth: 0.5,
+   borderColor: '#777777',
   }
+});
 
-
-
-
-  function sendText(text){
-    fetch('http://45.55.166.191:3020/test', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      firstParam: 'hello AHMED;',
-      secondParam: text,
-    })
-  }).then((response) => console.log(response)).catch((error) => {
-      console.log(error);
-    })
-
-
-  }
-
-  const styles = StyleSheet.create({
-    bigblue: {
-      color: 'blue',
-      fontWeight: 'bold',
-      fontSize: 30,
-    },
-    red: {
-      color: 'red',
-      fontSize: 20,
-    },
-    size1: {
-      width: 400,
-      height: 400
-    }
-  });
-
-  AppRegistry.registerComponent('friendmapclient', () => friendmapclient);
+AppRegistry.registerComponent('friendmapclient', () => friendmapclient);
