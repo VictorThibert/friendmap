@@ -4,7 +4,7 @@ var pg = require('pg');
 //config of the connection
 var config = {
   user: 'root', //env var: PGUSER
-  database: 'fuck', //env var: PGDATABASE
+  database: 'friendmap', //env var: PGDATABASE
   host: '45.55.166.191',
   // host: 'localhost',
   //password: 'secret', //env var: PGPASSWORD
