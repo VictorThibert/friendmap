@@ -21,17 +21,20 @@ class friendmapclient extends Component {
   render() {
     return (
      //<MapView style={styles.map}/>
-     <GoogleMap
-         style={styles.map}
-         showsUserLocation={true}
-         scrollGestures={true}
-         zoomGestures={true}
-         tiltGestures={true}
-         rotateGestures={true}
-         consumesGesturesInView={true}
-         compassButton={true}
-         myLocationButton={true}
-     />
+     <View style={styles.container}>
+        <GoogleMap
+            style={styles.map}
+            cameraPosition={{auto: true, zoom: 10}}
+            showsUserLocation={true}
+            scrollGestures={true}
+            zoomGestures={true}
+            tiltGestures={true}
+            rotateGestures={true}
+            consumesGesturesInView={true}
+            compassButton={true}
+            myLocationButton={true}
+        />
+     </View>
     );
   }
 }
@@ -39,8 +42,20 @@ class friendmapclient extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    margin: 5,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   welcome: {
     fontSize: 20,
@@ -52,11 +67,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
-  },
-  map:{
-    flex: 1,
-    height: 200,
-    margin: 10,
   },
   button:{
    alignSelf: 'center',

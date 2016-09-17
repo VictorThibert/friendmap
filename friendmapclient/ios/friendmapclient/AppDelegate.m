@@ -16,7 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [PPTGoogleMapProvider provideAPIKey:@"AIzaSyD_TDaYBJ2205gliFrjUgzfodV-MkLi_wM"];
+  [PPTGoogleMapProvider provideAPIKey:@"AIzaSyCajuU6pPLn3Dc44H4vPq_2to0tVj_F7ZQ"];
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
