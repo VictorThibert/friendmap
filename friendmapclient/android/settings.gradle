@@ -1,0 +1,3 @@
+rootProject.name = 'friendmapclient'
+
+include ':app'
