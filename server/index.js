@@ -25,6 +25,7 @@ app.use(morgan('combined'))
 
 // handle auth
 app.use('/auth', require('./controllers/auth.controller.js'));
+app.use('/social/', require('./controllers/social.controller.js'))
 
 
 // handle friends
@@ -45,6 +46,7 @@ app.get('/test', function(req, res){
 
 // start
 app.listen(3020)
+console.log("listening to port 3020");
 
 
 

@@ -5,10 +5,18 @@ var express = require('express')
 var router = express.Router();
 
 var db = require("../database");
+var numberOfIds = 2;
+var cookieParser = require('cookie-parser');
 
 // auth
+router.use(cookieParser());
 router.use(passport.initialize());
 router.use(passport.session());
+router.use(require('express-session')({
+    secret: 'somenextshit',
+    resave: false,
+    saveUninitialized: false
+}));
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
@@ -23,10 +31,24 @@ passport.use(new LocalStrategy(
       if(results.rowCount == 0){ return done(null, false, {message:"the username and password does not exist"});  }
       if(results.rowCount > 1) console.log("WARNING there are multiple people with the same name, please look into that");
 
+      if(!comparePassword(password, results.rows[0].password)){
+        console.log("inside the if statement");
+        return done(null, false, {message:"the username and password does not exist"})
+      }
+      console.log("results.rows[0]: ", results.rows[0]);
       done(null, results.rows[0]);
     })
   }
 ));
+
+function comparePassword(text, storedPassword){
+  return (text === storedPassword);
+}
+
+function ensureAuthenticated(req, res, next){
+  if(req.isAuthenticated()) return next();
+  else res.send("user not logged in");
+}
 
 router.post('/signin',
   passport.authenticate('local'),
@@ -35,7 +57,6 @@ router.post('/signin',
     // `req.user` contains the authenticated user.
     res.send({ message:"success", userid:req.user.id, token:"AAAA"  });
   });
-
 
 router.post('/signup', function(req, res) {
   // make sure this username does not already exist
@@ -48,7 +69,8 @@ router.post('/signup', function(req, res) {
     // console.log("results: ", results.rowCount)
     if(results.rowCount > 1){ return done(null, false, {message:"the username already exists"});  }
     var timestamp = 'NULL';
-    var queryString = "INSERT INTO profile (id, picture, bio, username, password, creation, email) VALUES (1,NULL,'"+req.body.bio+"','"+req.body.username+"','"+req.body.password+"',"+timestamp+",'"+req.body.email+"');";
+    numberOfIds += 1;
+    var queryString = "INSERT INTO profile (id, picture, bio, username, password, creation, email) VALUES ("+numberOfIds+",NULL,'"+req.body.bio+"','"+req.body.username+"','"+req.body.password+"',"+timestamp+",'"+req.body.email+"');";
     console.log("queryString: ", queryString);
     queryString = queryString.replace(/'undefined'/g, "NULL")
     db(queryString, function(err, results){
@@ -57,17 +79,33 @@ router.post('/signup', function(req, res) {
     })
   })
 });
-// router.post('/signout', );
-// router.post('/signup', );
+
+router.get('/signout', function(req, res){
+  req.logout();
+  res.send("user logged out");
+});
+
+router.get('/check', function(req, res){
+   res.send(req.isAuthenticated())
+})
+
+router.get('/test', ensureAuthenticated, function(req, res){
+   res.send('random shit')
+})
 
 passport.serializeUser(function(user, done) {
   //TODO
+  console.log("serializing user: ", user);
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-  //TODO
-  done(err, {'id':id});
+  console.log("deserializing user");
+  db("select * from profile where id = '"+id+"'", function(err, results){
+    if(err){ console.log(err); return done(err);  }
+    if(results.rowCount == 0){ return done("user does not exist");  }
+    return done(err, results.rows[0]);
+  })
 });
 
 module.exports = router
