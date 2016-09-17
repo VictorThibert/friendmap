@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('friendmap', () => friendmap);
+AppRegistry.registerComponent('friendmapclient', () => friendmap);
