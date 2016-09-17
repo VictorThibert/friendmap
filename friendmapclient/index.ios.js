@@ -3,11 +3,21 @@
   import Button from 'react-native-button';
 
   class friendmapclient extends Component {
+    
+    constructor(props) {
+      super(props)
+      this.state = {
+        username: '',
+        password: ''
+      }
+    }
+    
     _handlePress(event) {
       let username=this.state.username;
       let password=this.state.password;
-      console.log(username, password)
+      sendLogin(username, password);
     }
+    
     render() {
       return (
           <View style={{padding: 10}}>
@@ -16,14 +26,16 @@
               onChangeText={(newtext) => this.setState({username: newtext})}
               placeholder="Username"
               autoCorrect = {false}
-              autoCapitalize = {false}
+              autoCapitalize = {'none'}
+              maxLength = {16}
             />
             <TextInput
               style={{height: 40}}
               onChangeText={(newtext) => this.setState({password: newtext})}
               placeholder="Password"
               autoCorrect = {false}
-              autoCapitalize = {false}
+              autoCapitalize = {'none'}
+              maxLength = {16}
             />
             <Button
               containerStyle={{padding:10, height:45, overflow:'hidden', borderRadius:4, backgroundColor: '#5BC0BE'}}
@@ -41,11 +53,8 @@
     }
   }
 
-  function sendLogin(){
-    
-  }
-
-  function sendText(text){
+  function sendLogin(username, password){
+    console.log(username, password)
     fetch('http://45.55.166.191:3020/test', {
       method: 'POST',
       headers: {
@@ -53,12 +62,12 @@
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username: 'hello AHMED;',
-        password: text,
+        username: username,
+        password: password,
+      })
     })
-    }).then((response) => console.log(response)).catch((error) => {
-      console.log(error);
-    })
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));   
   }
 
   const styles = StyleSheet.create({
