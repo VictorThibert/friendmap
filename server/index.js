@@ -26,6 +26,7 @@ app.use(morgan('combined'))
 // handle auth
 app.use('/auth', require('./controllers/auth.controller.js'));
 app.use('/social/', require('./controllers/social.controller.js'))
+app.use('/markers/', require('./controllers/markers.controller.js'))
 
 
 // handle friends
