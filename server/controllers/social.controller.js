@@ -5,6 +5,7 @@ var db = require("../database");
 
 router.get('/add', function(req, res) {
   var queryString = "insert into friends (id, friendID) values ("+req.headers.id+","+req.headers.friendid+" )";
+  console.log("queryString: ", queryString);
   db(queryString, function(err, results){
     if(err){ console.log("err: ", err); return res.send({message:"failed"}); }
     if(results.rowCount == 0){ console.log("did not add to database"); res.send({message:"failed", reason:"did not insert"})  }
