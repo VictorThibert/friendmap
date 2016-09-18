@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, Text, Navigator, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 
-class friendmapclient extends React.Component {
+class App extends React.Component {
     render() {
         return (
             <Navigator
@@ -56,14 +56,3 @@ class WelcomeView extends React.Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex:1
-  },
-  welcome: {
-    flex:1
-  }
-})
-
-AppRegistry.registerComponent('friendmapclient', () => friendmapclient);
