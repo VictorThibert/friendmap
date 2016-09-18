@@ -55,7 +55,7 @@ router.post('/signin',
   function(req, res) {
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
-    res.send({ message:"success", userid:req.user.id, token:"AAAA"  });
+    res.send("success");
   });
 
 router.post('/signup', function(req, res) {
