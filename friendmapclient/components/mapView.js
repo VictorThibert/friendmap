@@ -15,26 +15,24 @@ class mapView extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <MapView
-      style={styles.map}
-      showsUserLocation={true}
-      onPress={(event) => {
-        var position = event.nativeEvent.coordinate;
-        this.setState({markers: this.state.markers.concat([position])});
-        console.log(this.state.markers)
-        createMarker(position, this.state.id);
-      }}
-      >
-      {this.state.markers.map(marker=>(
-        <MapView.Marker
-        coordinate={marker}
-        title={"-"}
-        description={"_"}
-          />
-      ))}
-
-
-      </MapView>
+        <MapView
+          style={styles.map}
+          showsUserLocation={true}
+          onPress={(event) => {
+            var position = event.nativeEvent.coordinate;
+            this.setState({markers: this.state.markers.concat([position])});
+            console.log(this.state.markers)
+            createMarker(position, this.state.id);
+          }}
+          >
+          {this.state.markers.map(marker=>(
+            <MapView.Marker
+            coordinate={marker}
+            title={"-"}
+            description={"_"}
+              />
+          ))}
+        </MapView>
       </View>
     );
   }
