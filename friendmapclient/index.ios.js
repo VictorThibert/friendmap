@@ -30,6 +30,7 @@ class mapView extends Component {
   render() {
     return (
         <View style={styles.container}>
+        <Text>TEJKNSKJASDKJSjaskljadslkjasdjkladskjladsjkasdjklasdjklasdjlkasdjklasdljkasd</Text>
             <MapView
                 style={styles.map}
                 showsUserLocation={true}
@@ -264,6 +265,40 @@ const styles = StyleSheet.create({
     fontSize: 30,
     top: 40,
   },
+  container: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 5,
+    paddingTop: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+  button:{
+   alignSelf: 'center',
+   marginTop: 5,
+   padding: 3,
+   borderWidth: 0.5,
+   borderColor: '#777777',
+  }
 });
 
 AppRegistry.registerComponent('friendmapclient', () => friendmapclient);

@@ -24,6 +24,7 @@ class friendmapclient extends Component {
   render() {
     return (
         <View style={styles.container}>
+        <Text>TESTSTTSTT</Text>
             <MapView
                 style={styles.map}
                 showsUserLocation={true}
