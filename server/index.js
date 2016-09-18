@@ -42,7 +42,7 @@ app.get('/test', function(req, res){
 })
 app.post('/test2', function(req, res){
   var result = "failed";
-  if(Math.rand() < 0.5) result = "success";
+  if(Math.random() < 0.5) result = "success";
   res.send({message:result});
 })
 
