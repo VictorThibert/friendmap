@@ -5,7 +5,6 @@ var express = require('express')
 var router = express.Router();
 
 var db = require("../database");
-var numberOfIds = 2;
 var cookieParser = require('cookie-parser');
 
 // auth
@@ -69,10 +68,9 @@ router.post('/signup', function(req, res) {
     // console.log("results: ", results.rowCount)
     if(results.rowCount > 1){ return done(null, false, {message:"the username already exists"});  }
     var timestamp = 'NULL';
-    numberOfIds += 1;
-    var queryString = "INSERT INTO profile (id, picture, bio, username, password, creation, email) VALUES ("+numberOfIds+",NULL,'"+req.body.bio+"','"+req.body.username+"','"+req.body.password+"',"+timestamp+",'"+req.body.email+"');";
-    console.log("queryString: ", queryString);
+    var queryString = "INSERT INTO profile (picture, bio, username, password, creation, email) VALUES (NULL,'"+req.body.bio+"','"+req.body.username+"','"+req.body.password+"',"+timestamp+",'"+req.body.email+"');";
     queryString = queryString.replace(/'undefined'/g, "NULL")
+    console.log("queryString: ", queryString);
     db(queryString, function(err, results){
        if(err){ console.log("auth.controller.js: ", err); return res.send({message:"failed"})  }
       res.send({ message:"success", token:"AAAA"  });
