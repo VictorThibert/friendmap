@@ -54,7 +54,7 @@ router.post('/signin',
   function(req, res) {
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
-    res.send("success");
+    res.send({ message:"success", id:req.user.id });
   });
 
 router.post('/signup', function(req, res) {
@@ -92,7 +92,6 @@ router.get('/test', ensureAuthenticated, function(req, res){
 })
 
 passport.serializeUser(function(user, done) {
-  //TODO
   console.log("serializing user: ", user);
   done(null, user.id);
 });
