@@ -6,59 +6,44 @@
 'use strict';
 
 import React, { Component } from 'react';
+
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,
-  MapView,
-  Button
+  View
 } from 'react-native';
 
-import GoogleMap  from 'react-native-maps-google';
-
+import MapView from 'react-native-maps';
 
 class friendmapclient extends Component {
+  state = {
+      markers: [],
+      i: 0
+  };
   render() {
-      console.log("Hello World")
     return (
-     <View style={styles.container}>
-         <GoogleMap
-             style={styles.map}
-             cameraPosition={{auto: true, zoom: 10}}
-             showsUserLocation={true}
-             scrollGestures={true}
-             zoomGestures={true}
-             tiltGestures={true}
-             rotateGestures={true}
-             consumesGesturesInView={true}
-             compassButton={true}
-             myLocationButton={true}
-             indoorPicker={true}
-             allowScrollGesturesDuringRotateOrZoom={true}
-             counter={23}
-             markers={[
-                 {
-                    id: 'marker-102',
-                    latitude: 21.7342,
-                    longitude: -5.7350,
-                    icon: require('./images/map-marker-5.png')
-                },
-             ]}
-
-             didLongPressAtCoordinate={function(event){
-                 console.log(event.data)
-                 console.log("####", this.counter)
-                //  this.markers.append({
-                //      id:this.counter++,
-                //      latitude: event.data.latitude,
-                //      longitude: event.data.longitude
-                //  })
-             }}
+        <View style={styles.container}>
+            <MapView
+                style={styles.map}
+                showsUserLocation={true}
+                onPress={(event) => {
+                    this.setState({markers: this.state.markers.concat([event.nativeEvent.coordinate])});
+                    //this.state.markers.push(event.nativeEvent.coordinate)
+                    console.log(this.state.markers)
+                }}
+            >
+                {this.state.markers.map(marker=>(
+                    <MapView.Marker
+                        coordinate={marker}
+                        title={"-"}
+                        description={"_"}
+                    />
+                ))}
 
 
-         />
-     </View>
+            </MapView>
+        </View>
     );
   }
 }

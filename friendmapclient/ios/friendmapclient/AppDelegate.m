@@ -7,8 +7,8 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-#import "PPTGoogleMapProvider.h"
 #import "AppDelegate.h"
+
 #import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
 
@@ -16,7 +16,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [PPTGoogleMapProvider provideAPIKey:@"AIzaSyCajuU6pPLn3Dc44H4vPq_2to0tVj_F7ZQ"];
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
