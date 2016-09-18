@@ -52,7 +52,7 @@ function ensureAuthenticated(req, res, next){
 router.post('/signin',
   passport.authenticate('local'),
   function(req, res) {
-    res.writeHead(200, {"Content-Type": "application/json"});
+    res.header("Content-Type", "application/json");
     res.send({ message:"success", id:req.user.id });
   });
 
