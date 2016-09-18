@@ -70,23 +70,19 @@ class loginView extends Component {
       username: '',
       password: '',
       modalVisible: false,
-      access: 'none'
+      access: 'none',
+      id: ''
     };
   }
 
-   goToNext() {
-      if(this.state.access == "success"){
+   goToNext(access) {
+      if(typeof(access) !== "string"){
         this.props.navigator.push({
           name: 'mapView',
           component: mapView
         });
       }
-      else {
-        AlertIOS.alert(
-          'Fuck you'
-        );
-      }
-
+      else AlertIOS.alert('Login failed');
    }
 
    setModalVisible(visible) {
@@ -112,7 +108,16 @@ class loginView extends Component {
          password: password,
        })
      })
-     .then((response) => {this.setState({access: response._bodyText}); console.log("-------------------------------------------", response._bodyText); this.goToNext();})
+     .then((response) => {
+       console.log("signin response is ", response._bodyText);
+       console.log("typeof(response._bodyText): ", typeof(response._bodyText));
+       if(typeof(response._bodyText) !== "string") {
+         console.log("going to change id");
+         this.state.setState({id:response._bodyText.id});
+       }
+       console.log("this.state: ", this.state);
+       this.goToNext(response._bodyText);
+     })
      .catch((error) => console.log(error))
      .done();
 

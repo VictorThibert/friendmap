@@ -52,8 +52,7 @@ function ensureAuthenticated(req, res, next){
 router.post('/signin',
   passport.authenticate('local'),
   function(req, res) {
-    // If this function gets called, authentication was successful.
-    // `req.user` contains the authenticated user.
+    res.writeHead(200, {"Content-Type": "application/json"});
     res.send({ message:"success", id:req.user.id });
   });
 
