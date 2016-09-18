@@ -1,0 +1,5 @@
+W160917 12:40:14.574107 1 util/log/clog.go:1019  [config] file created at: 2016/09/17 12:40:14
+W160917 12:40:14.574107 1 util/log/clog.go:1019  [config] running on machine: Main
+W160917 12:40:14.574107 1 util/log/clog.go:1019  [config] binary: CockroachDB beta-20160915 (linux amd64, built 2016/09/15 14:55:42, go1.7.1)
+W160917 12:40:14.574107 1 util/log/clog.go:1019  [config] arguments: [cockroach start]
+W160917 12:40:14.574107 1 util/log/clog.go:1019  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg

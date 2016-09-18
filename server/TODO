@@ -1,0 +1,43 @@
+ server requests
+
+ - log in
+ - log out
+ - signup
+
+ - add friend
+ - delete friend
+ - view friend list
+ 
+ - create marker
+ - get markers for specific user
+ - find friends of user
+ - get all markers from friends list 
+
+
+
+front end
+
+  - come up with a front end design
+  - make all the pages 
+    - make the map
+    - make the markers
+    - server returns json and makes the pointers at those locations
+  - connect to node server
+
+
+
+server API
+
+  /auth/login
+    - post req
+    - req parameters
+      - name
+      - password
+      - 
+  /auth/logout
+  /auth/signup
+
+
+
+
+

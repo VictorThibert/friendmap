@@ -1,52 +1,58 @@
-var pg = require('pg');
-var async = require('async');
 
-// instantiate a new client
-// the client will read connection information from
-// the same environment variables used by postgres cli tools
+var express = require("express");
+var bodyParser = require('body-parser')
+var app = express();
 
-var config = {
-  user: 'root', //env var: PGUSER
-  database: 'fuck', //env var: PGDATABASE
-  host: '45.55.166.191',
-  // host: 'localhost',
-  //password: 'secret', //env var: PGPASSWORD
-  port: 26257 //env var: PGPORT
-};
+var morgan = require('morgan')
+var passport = require('passport')
+var LocalStrategy = require('passport-local').Strategy;
 
-pg.connect(config, function (err, client, done) {
-  // Closes communication with the database and exits.
-  var finish = function () {
-    done();
-    process.exit();
-  };
 
-  if (err) {
-    console.error('could not connect to cockroachdb', err);
-    finish();
-  }
-  async.waterfall([
-    function (next) {
-      // Insert two rows into the "accounts" table.
-      client.query("INSERT INTO el (id, name) VALUES (1, 'pickle'), (2, 'bruh');", next);
-    },
-    function (results, next) {
-      // Print out the balances.
-      client.query('SELECT id, name FROM el;', next);
-    },
-  ],
-  function (err, results) {
-    if (err) {
-      console.error('error inserting into and selecting from accounts', err);
-      finish();
-    }
+// -------------------------------------------------- start middleware --------------------------------------------------
+// parsers
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
-    console.log('Initial balances:');
-    results.rows.forEach(function (row) {
-      console.log(row);
-    });
+// debugging tools
+app.use(morgan('combined'))
 
-    finish();
-  });
-});
+// -------------------------------------------------- stop middleware --------------------------------------------------
+
+
+
+
+// -------------------------------------------------- start routes --------------------------------------------------
+
+// handle auth
+app.use('/auth', require('./controllers/auth.controller.js'));
+app.use('/social/', require('./controllers/social.controller.js'))
+app.use('/markers/', require('./controllers/markers.controller.js'))
+
+
+// handle friends
+
+
+// functionality
+
+app.post('/test', function(req, res){
+  res.send("post request was successfully received\n");
+})
+app.get('/test', function(req, res){
+  res.send("get request was successfully received\n");
+})
+app.post('/test2', function(req, res){
+  var result = "failed";
+  if(Math.random() < 0.5) result = "success";
+  res.send({message:result});
+})
+
+// -------------------------------------------------- start routes --------------------------------------------------
+
+
+
+// start
+app.listen(3020)
+console.log("listening to port 3020");
+
+
 
