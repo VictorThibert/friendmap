@@ -3,29 +3,83 @@ import Button from 'react-native-button';
 import Hr from 'react-native-hr';
 import { AppRegistry, Text, Image, View, StyleSheet, TextInput, ScrollView, Navigator, AlertIOS } from 'react-native';
 
-
 class friendmapclient extends Component {
+  render() {
+        return (
+            <Navigator
+                initialRoute={{name: 'loginView', component: loginView}}
+                configureScene={() => {
+                    return Navigator.SceneConfigs.FloatFromRight;
+                }}
+                renderScene={(route, navigator) => {
+                    if (route.component) {
+                        return React.createElement(route.component, { navigator });
+                    }
+                }}
+             />
+        );
+    }
+}
+
+
+class loginView extends Component {
  
   constructor(props) {
     super(props);
     this.state = {
       text: '',
       username: '',
-      password: ''
+      password: '',
+      title: 'login',
+      auth: 'Unauthorized'
     };
+  }
+  
+  sendLogin(username, password){
+      console.log("INFO //////////////////////////////////////////////////////////////////////////////////////////: ", username, password)
+      fetch('http://45.55.166.191:3020/auth/signin', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        })
+      })
+        .then((response) => { 
+            console.log("11111111111",response._bodyText)
+            this.setState({auth: response});
+            console.log("---------------------------------", response._bodyText.message)
+      })
+        .catch((error) => console.log("INFOERROR: ", error));  
+      
+//       this.goToNext();
+    }
+  
+  goToNext() {
+    console.log(58, this.state.auth)
+    this.props.navigator.push({
+      name: 'mapView',
+      component: mapView
+    });
   }
   
   _handlePress(event) {
     let username=this.state.username;
     let password=this.state.password;
-    sendLogin(username, password);
+    this.sendLogin(username, password, this);
   }
 
   render() {
     return (
       <View style={{padding: 10}}>
+        
         <Text style={styles.title}>Friendmap</Text>
         <Text style={styles.subtitle}>Welcome</Text>
+        
+        
         <Text style={styles.paragraph}>Existing users sign in below</Text>
         <TextInput
           style={{height: 40, top: 80, backgroundColor: "#f4f4f4", padding: 8}}
@@ -63,22 +117,17 @@ class friendmapclient extends Component {
   }
 }
 
-function sendLogin(username, password){
-    console.log(username, password)
-    fetch('http://45.55.166.191:3020/test', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      })
-    })
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));   
-  }
+class mapView extends Component {
+  render() {
+        return (
+            <View style={{width: 100, backgroundColor: 'red'}}>
+                <Text>
+                    Feed View!
+                </Text>
+            </View>
+        );
+    }
+}
 
 const styles = StyleSheet.create({
   title: {
