@@ -5,7 +5,7 @@ import { AlertIOS, Modal, View, Text, TextInput} from 'react-native'
 import Button from 'react-native-button';
 import styles from '../styles.js'
 
-import {mapView} from './mapView'
+import mapView from './mapView'
 
 class loginView extends Component {
   constructor(props) {
