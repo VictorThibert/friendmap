@@ -30,7 +30,7 @@ class mapView extends Component {
   render() {
     return (
         <View style={styles.container}>
-        <Text>TEJKNSKJASDKJSjaskljadslkjasdjkladskjladsjkasdjklasdjklasdjlkasdjklasdljkasd</Text>
+      
             <MapView
                 style={styles.map}
                 showsUserLocation={true}
@@ -59,12 +59,30 @@ class mapView extends Component {
 
 class loginView extends Component {
   
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '',
+      username: '',
+      password: '',
+      modalVisible: false,
+      access: 'none'
+    };
+  }
+  
    goToNext() {
-      console.log(58, this.state.auth)
-      this.props.navigator.push({
+      if(this.state.access == "success"){
+        this.props.navigator.push({
         name: 'mapView',
         component: mapView
       });
+      }
+     else {
+       AlertIOS.alert(
+ 'Fuck you'
+);
+     }
+      
     }
 
   setModalVisible(visible) {
@@ -77,8 +95,8 @@ class loginView extends Component {
   }
   
   sendLogin(username, password){
-    console.log(username, password)
-    fetch('http://45.55.166.191:3020/test', {
+    console.log("/////////////////////////////////", username, password)
+    fetch('http://45.55.166.191:3020/auth/signin', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -89,21 +107,14 @@ class loginView extends Component {
         password: password,
       })
     })
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error)); 
+      .then((response) => {this.setState({access: response._bodyText}); console.log("-------------------------------------------", response._bodyText); this.goToNext();})
+      .catch((error) => console.log(error))
+      .done(); 
   
-      this.goToNext();
+      
   }
   
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: '',
-      username: '',
-      password: '',
-      modalVisible: false
-    };
-  }
+  
   
   _handlePress(event) {
     let username=this.state.username;
