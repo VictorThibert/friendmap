@@ -3,8 +3,68 @@ import Button from 'react-native-button';
 import Hr from 'react-native-hr';
 import { AppRegistry, Text, Modal, TouchableHighlight, Image, View, StyleSheet, TextInput, ScrollView, Navigator, AlertIOS } from 'react-native';
 import BackgroundImage from "./BackgroundImage";
-
+import MapView from 'react-native-maps';
 class friendmapclient extends Component {
+  render() {
+        return (
+            <Navigator
+                initialRoute={{name: 'loginView', component: loginView}}
+                configureScene={() => {
+                    return Navigator.SceneConfigs.FloatFromRight;
+                }}
+                renderScene={(route, navigator) => {
+                    if (route.component) {
+                        return React.createElement(route.component, { navigator });
+                    }
+                }}
+             />
+        );
+    }
+}
+
+class mapView extends Component {
+  state = {
+      markers: [],
+      i: 0
+  };
+  render() {
+    return (
+        <View style={styles.container}>
+            <MapView
+                style={styles.map}
+                showsUserLocation={true}
+                onPress={(event) => {
+                    this.setState({markers: this.state.markers.concat([event.nativeEvent.coordinate])});
+                    //this.state.markers.push(event.nativeEvent.coordinate)
+                    console.log(this.state.markers)
+                }}
+            >
+                {this.state.markers.map(marker=>(
+                    <MapView.Marker
+                        coordinate={marker}
+                        title={"-"}
+                        description={"_"}
+                    />
+                ))}
+
+
+            </MapView>
+        </View>
+    );
+  }
+}
+
+
+
+class loginView extends Component {
+  
+   goToNext() {
+      console.log(58, this.state.auth)
+      this.props.navigator.push({
+        name: 'mapView',
+        component: mapView
+      });
+    }
 
   setModalVisible(visible) {
     this.setState({
@@ -13,6 +73,25 @@ class friendmapclient extends Component {
       password: '',
       modalVisible: visible
     });
+  }
+  
+  sendLogin(username, password){
+    console.log(username, password)
+    fetch('http://45.55.166.191:3020/test', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      })
+    })
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error)); 
+  
+      this.goToNext();
   }
   
   constructor(props) {
@@ -28,7 +107,7 @@ class friendmapclient extends Component {
   _handlePress(event) {
     let username=this.state.username;
     let password=this.state.password;
-    sendLogin(username, password);
+    this.sendLogin(username, password);
   }
 
   render() {
@@ -131,22 +210,6 @@ class friendmapclient extends Component {
   }
 }
 
-function sendLogin(username, password){
-    console.log(username, password)
-    fetch('http://45.55.166.191:3020/test', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      })
-    })
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));   
-  }
 
 const styles = StyleSheet.create({
   backgroundImage:{
