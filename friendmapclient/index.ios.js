@@ -76,7 +76,7 @@ class loginView extends Component {
   }
 
    goToNext(access) {
-      if(typeof(access) !== "string"){
+      if(access !== "Unauthorized"){
         this.props.navigator.push({
           name: 'mapView',
           component: mapView
@@ -111,9 +111,9 @@ class loginView extends Component {
      .then((response) => {
        console.log("signin response is ", response._bodyText);
        console.log("typeof(response._bodyText): ", typeof(response._bodyText));
-       if(typeof(response._bodyText) !== "string") {
+       if(response._bodyText !== "Unauthorized") {
          console.log("going to change id");
-         this.state.setState({id:response._bodyText.id});
+         this.state.id = JSON.parse(response._bodyText).id;
        }
        console.log("this.state: ", this.state);
        this.goToNext(response._bodyText);
