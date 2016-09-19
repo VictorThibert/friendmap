@@ -44,6 +44,7 @@ export function signup(username, password, email){
       email: email
     })
   })
+  return signup;
 }
 
 // --------------------------- end auth ----------------------------------------
@@ -52,7 +53,7 @@ export function signup(username, password, email){
 
 
 // --------------------------- start markers ----------------------------------------
-export function createMarker(position, userid, name, review){
+export function createMarker(marker, userid){
   console.log("starting the createMarker");
   return fetch(`${domainName}:${port}/markers/create`, {
     method: 'POST',
@@ -62,11 +63,11 @@ export function createMarker(position, userid, name, review){
     },
     body: JSON.stringify({
       profileid: userid,
-      name: name,
-      review: review,
-      longitude: position.longitude,
-      latitude: position.latitude,
-      code: ""
+      name: marker.name,
+      review: marker.review,
+      longitude: marker.longitude,
+      latitude: marker.latitude,
+      code: marker.code
     })
   }).done(function(){ console.log("finished create maker");  });
 }
@@ -76,10 +77,25 @@ export function getMyMarkers(userid){
 }
 
 export function getAllMarkers(userid){
- // TODO
+  console.log("starting the createMarker: ", userid, " typeof(userid): ", typeof(userid));
+  return fetch(`${domainName}:${port}/markers/getAll`, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      id: userid
+    }
+  })
 }
 export function deleteMarker(markerid){
- //TODO
+  return fetch(`${domainName}:${port}/markers/getAll`, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      id: markerId
+    }
+  })
 }
 // --------------------------- end markers ----------------------------------------
 

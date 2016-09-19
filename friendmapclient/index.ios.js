@@ -13,15 +13,15 @@ class friendmapclient extends Component {
   render() {
     return (
       <Navigator
-      initialRoute={{name: 'loginView', component: loginView}}
-      configureScene={() => {
-        return Navigator.SceneConfigs.FloatFromRight;
-      }}
-      renderScene={(route, navigator) => {
-        if (route.component) {
-          return React.createElement(route.component, { navigator });
-        }
-      }}
+        initialRoute={{name: 'loginView', component: loginView}}
+        configureScene={() => {
+          return Navigator.SceneConfigs.FloatFromRight;
+        }}
+        renderScene={(route, navigator) => {
+          if (route.component) {
+            return React.createElement(route.component, { navigator });
+          }
+        }}
         />
     );
   }
