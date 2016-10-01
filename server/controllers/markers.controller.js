@@ -28,8 +28,10 @@ router.get('/getForUser', function(req, res) {
 // this will get all the locations from all the friends
 router.get('/getAll', function(req, res){
   // get all the friends
+  console.log("req.headers: ", req.headers) ;
   var subQuery = "select friendID from friends where id = " + req.headers.id;
   var queryString = "select * from location where profileid in (" + subQuery + ") or profileid = " + req.headers.id;
+  console.log("req.headers: ", req.headers);
 
   console.log("queryString: ", queryString);
   db(queryString, function(err, results){
