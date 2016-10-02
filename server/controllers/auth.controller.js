@@ -35,19 +35,26 @@ passport.use(new LocalStrategy(
       if(results.rowCount == 0){ return done(null, false, {message:"the username and password does not exist"});  }
       if(results.rowCount > 1) console.log("WARNING there are multiple people with the same name, please look into that");
 
-      if(!comparePassword(password, results.rows[0].password)){
-        console.log("inside the if statement");
-        return done(null, false, {message:"the username and password does not exist"})
-      }
-      console.log("results.rows[0]: ", results.rows[0]);
-      done(null, results.rows[0]);
+      comparePassword(password, results.rows[0].password, function(err, res){
+        if(err){
+	  console.log("inside the if statement");
+	  return done(null, false, {message:"the username and password does not exist"})
+        }
+
+	console.log("results.rows[0]: ", results.rows[0]);
+	return done(null, results.rows[0]);
+     })
     })
   }
 ));
 
 function comparePassword(password, hash, callback){
   // Load hash from your password DB.
-  bcrypt.compare(password, hash, callback(err, res); );
+  console.log("going to compare the password: ", password, " and hash: ", hash);
+  bcrypt.compare(password, hash, function(err, res){
+    console.log("err: ", err, " result: ", res);
+    callback(err, res);
+  });
 }
 
 function ensureAuthenticated(req, res, next){
