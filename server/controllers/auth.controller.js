@@ -1,11 +1,41 @@
+// modules
 var express = require('express')
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
-
 var router = express.Router();
+// files
 var db = require("../database");
+// constants
 const JWT_SECRET = "willFixLater"
 const saltRounds = 10;
+
+
+// -------------------- helper functions --------------------
+/** is a function that will check if the hash and the password are equivalent
+   *
+   * password = is the plain text password that you are trying to check,
+   * hash = hashed password
+   * callback = function that will take in two arguments (err, response) where err = to any error that may occur, response is a true or false if the password is valid or not
+   */
+function comparePassword(password, hash, callback){
+  console.log("going to compare the password: ", password, " and hash: ", hash);
+  bcrypt.compare(password, hash, function(err, res){
+    console.log("err: ", err, " result: ", res);
+    callback(err, res);
+  });
+}
+
+/** this is middleware that will go to the next middleware if the user is authenticated, and will
+  * respond saying the user is not authenticated if not
+  */
+function ensureAuthenticated(req, res, next){
+  jwt.verify(req.body.token, JWT_SECRET, function(err, decoded) {
+    if(err) return res.send("user not logged in");
+    else return next();
+  });
+}
+// -------------------- end helper functions --------------------
+
 
 router.post('/signin',
   function(req, res, next){
@@ -75,28 +105,15 @@ router.get('/signout', function(req, res){
   res.send("user logged out");
 });
 
-router.get('/check', function(req, res){
-  console.log("req.user: ", req.body)
-  res.send(req.isAuthenticated())
+router.post('/check', function(req, res){
+  jwt.verify(req.body.token, JWT_SECRET, function(err, decoded) {
+    if(err) res.send({ success:false, message:"token failed" });
+    else res.send({success:true, message:"token valid"});
+  });
 })
 
 router.get('/test', ensureAuthenticated, function(req, res){
    res.send('random shit')
 })
-
-function comparePassword(password, hash, callback){
-  // Load hash from your password DB.
-  console.log("going to compare the password: ", password, " and hash: ", hash);
-  bcrypt.compare(password, hash, function(err, res){
-    console.log("err: ", err, " result: ", res);
-    callback(err, res);
-  });
-}
-
-function ensureAuthenticated(req, res, next){
-  if(req.isAuthenticated()) return next();
-  else res.send("user not logged in");
-}
-
 
 module.exports = router
