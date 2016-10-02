@@ -7,71 +7,8 @@ import styles from '../styles.js'
 
 import mapView from './mapView'
 import {signup} from '../database'
+import RegisterModal from './registerModal'
 
-
-
-class registerModal extends Component{
-  render(){
-    return (
-      <Modal
-        animationType={"slide"}
-        transparent={false}
-        visible={this.state.modalVisible}
-        >
-        <View>
-        <View style={{padding:40}}>
-        <Text style={styles.modalSubtitle}>Register</Text>
-        <TextInput
-          style={{height: 40, top: 80, backgroundColor: "#f4f4f4", padding: 8, borderRadius: 3}}
-          placeholder="Username"
-          onChangeText={(newtext) => this.setState({username: newtext})}
-          autoCorrect = {false}
-          autoCapitalize = {'none'}
-          maxLength = {16}
-          />
-        <TextInput
-          style={{height: 40, top: 110, backgroundColor: "#f4f4f4", padding: 8, borderRadius: 3}}
-          secureTextEntry={true}
-          placeholder="Password"
-          onChangeText={(newtext) => this.setState({password: newtext})}
-          autoCorrect = {false}
-          autoCapitalize = {'none'}
-          maxLength = {16}
-          />
-        <TextInput
-        style={{height: 40, top: 120, backgroundColor: "#f4f4f4", padding: 8, borderRadius: 3}}
-        secureTextEntry={true}
-        placeholder="Confirm Password"
-        autoCorrect = {false}
-        autoCapitalize = {'none'}
-        maxLength = {16}
-          />
-        <Button
-          onPress={() => {
-            this.setModalVisible(false);
-            signup(this.state.username, this.state.password, 'not provided')
-            .then((response) => AlertIOS.alert('Account created'))
-            .catch((error) => AlertIOS.alert("unable to create account"))
-            .done();
-          }}
-          containerStyle={{padding:10, top: 150, height:35, borderRadius:4, backgroundColor: 'rgba(0,0,0,0)'}}
-          style={{fontSize: 20, color: '#323232'}}>
-          Confirm Registration
-        </Button>
-        <Button
-        onPress={() => {
-          this.setModalVisible(false)
-        }}
-        containerStyle={{padding:10, top: 160, height:35, overflow:'hidden', borderRadius:4, backgroundColor: 'rgba(0,0,0,0)'}}
-        style={{fontSize: 20, color: '#b2b2b2'}}>
-        Cancel
-        </Button>
-        </View>
-        </View>
-      </Modal>
-    )
-  }
-}
 
 class loginView extends Component {
   constructor(props) {
@@ -102,10 +39,9 @@ class loginView extends Component {
   }
 
   setModalVisible(visible) {
+    console.log("this.setState: ", this.setState);
+    console.log("this.state: ", this.state)
     this.setState({
-      text: '',
-      username: '',
-      password: '',
       modalVisible: visible
     });
   }
@@ -133,9 +69,7 @@ class loginView extends Component {
   }
 
   _handlePress(event) {
-    let username=this.state.username;
-    let password=this.state.password;
-    this.sendLogin(username, password);
+    this.sendLogin(this.state.username, this.state.password);
   }
 
   render() {
@@ -147,62 +81,11 @@ class loginView extends Component {
 
       <View>
 
-      <Modal
-        animationType={"slide"}
-        transparent={false}
-        visible={this.state.modalVisible}
-        >
-        <View>
-        <View style={{padding:40}}>
-        <Text style={styles.modalSubtitle}>Register</Text>
-        <TextInput
-          style={{height: 40, top: 80, backgroundColor: "#f4f4f4", padding: 8, borderRadius: 3}}
-          placeholder="Username"
-          onChangeText={(newtext) => this.setState({username: newtext})}
-          autoCorrect = {false}
-          autoCapitalize = {'none'}
-          maxLength = {16}
-          />
-        <TextInput
-          style={{height: 40, top: 110, backgroundColor: "#f4f4f4", padding: 8, borderRadius: 3}}
-          secureTextEntry={true}
-          placeholder="Password"
-          onChangeText={(newtext) => this.setState({password: newtext})}
-          autoCorrect = {false}
-          autoCapitalize = {'none'}
-          maxLength = {16}
-          />
-        <TextInput
-        style={{height: 40, top: 120, backgroundColor: "#f4f4f4", padding: 8, borderRadius: 3}}
-        secureTextEntry={true}
-        placeholder="Confirm Password"
-        autoCorrect = {false}
-        autoCapitalize = {'none'}
-        maxLength = {16}
-          />
-        <Button
-          onPress={() => {
-            this.setModalVisible(false);
-            signup(this.state.username, this.state.password, 'not provided')
-            .then((response) => AlertIOS.alert('Account created'))
-            .catch((error) => AlertIOS.alert("unable to create account"))
-            .done();
-          }}
-          containerStyle={{padding:10, top: 150, height:35, borderRadius:4, backgroundColor: 'rgba(0,0,0,0)'}}
-          style={{fontSize: 20, color: '#323232'}}>
-          Confirm Registration
-        </Button>
-        <Button
-        onPress={() => {
-          this.setModalVisible(false)
-        }}
-        containerStyle={{padding:10, top: 160, height:35, overflow:'hidden', borderRadius:4, backgroundColor: 'rgba(0,0,0,0)'}}
-        style={{fontSize: 20, color: '#b2b2b2'}}>
-        Cancel
-        </Button>
-        </View>
-        </View>
-      </Modal>
+      <RegisterModal
+        modalVisible={this.state.modalVisible}
+        setModalVisible={this.setModalVisible.bind(this)}
+        />
+
       <View style={{padding:40, paddingTop: 100}}>
       <Text style={styles.title}>Friendmap</Text>
       <Text style={styles.subtitle}>Welcome</Text>
@@ -233,7 +116,7 @@ class loginView extends Component {
       <Text style={styles.regSubtitle}>New to Friendmap?</Text>
       <Button
         onPress={() => {
-          this.setModalVisible(true)
+          this.setModalVisible(true);
         }}
         containerStyle={{padding:10, top: 200, height:35, borderRadius:4, backgroundColor: 'rgba(0,0,0,0)'}}
         style={{fontSize: 20, color: 'white'}}>
