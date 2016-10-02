@@ -26,10 +26,10 @@ function comparePassword(password, hash, callback){
 }
 
 /** this is middleware that will go to the next middleware if the user is authenticated, and will
-  * respond saying the user is not authenticated if not
+  * respond saying the user is not authenticated if not.
   */
 function ensureAuthenticated(req, res, next){
-  jwt.verify(req.body.token, JWT_SECRET, function(err, decoded) {
+  jwt.verify(req.body.token || req.headers.token, JWT_SECRET, function(err, decoded) {
     if(err) return res.send("user not logged in");
     else return next();
   });
@@ -37,6 +37,23 @@ function ensureAuthenticated(req, res, next){
 // -------------------- end helper functions --------------------
 
 
+
+// -------------------- debug routes --------------------
+router.post('/check', function(req, res){
+  jwt.verify(req.body.token, JWT_SECRET, function(err, decoded) {
+    if(err) res.send({ success:false, message:"token failed" });
+    else res.send({success:true, message:"token valid"});
+  });
+})
+
+router.get('/test', ensureAuthenticated, function(req, res){
+   res.send('random shit')
+})
+// -------------------- end debug routes --------------------
+
+
+
+// -------------------- routes --------------------
 router.post('/signin',
   function(req, res, next){
     if(!req.body.username || !req.body.password) return res.json({ success: false, message:'username or password were given' })
@@ -104,16 +121,8 @@ router.post('/signup', function(req, res) {
 router.get('/signout', function(req, res){
   res.send("user logged out");
 });
+// -------------------- routes --------------------
 
-router.post('/check', function(req, res){
-  jwt.verify(req.body.token, JWT_SECRET, function(err, decoded) {
-    if(err) res.send({ success:false, message:"token failed" });
-    else res.send({success:true, message:"token valid"});
-  });
-})
 
-router.get('/test', ensureAuthenticated, function(req, res){
-   res.send('random shit')
-})
-
-module.exports = router
+module.exports.ensureAuthenticated = ensureAuthenticated;
+module.exports.router = router

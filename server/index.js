@@ -7,6 +7,8 @@ var morgan = require('morgan')
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy;
 
+var auth = require("./controllers/auth.controller");
+
 
 // -------------------------------------------------- start middleware --------------------------------------------------
 // parsers
@@ -24,9 +26,9 @@ app.use(morgan('combined'))
 // -------------------------------------------------- start routes --------------------------------------------------
 
 // handle auth
-app.use('/auth', require('./controllers/auth.controller.js'));
-app.use('/social/', require('./controllers/social.controller.js'))
-app.use('/markers/', require('./controllers/markers.controller.js'))
+app.use('/auth', auth.router);
+app.use('/social/', auth.ensureAuthenticated, require('./controllers/social.controller.js'))
+app.use('/markers/', auth.ensureAuthenticated, require('./controllers/markers.controller.js'))
 
 
 // handle friends
@@ -40,7 +42,7 @@ app.post('/test', function(req, res){
 app.get('/test', function(req, res){
   res.send("get request was successfully received\n");
 })
-app.post('/test2', function(req, res){
+app.post('/test2', auth.ensureAuthenticated, function(req, res){
   var result = "failed";
   if(Math.random() < 0.5) result = "success";
   res.send({message:result});
