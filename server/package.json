@@ -10,10 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "async": "^2.0.1",
+    "bcrypt": "^0.8.7",
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
+    "jsonwebtoken": "^7.1.9",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",

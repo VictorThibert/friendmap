@@ -1,11 +1,14 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy
 var express = require('express')
+var bcrypt = require('bcrypt');
 
 var router = express.Router();
 
 var db = require("../database");
 var cookieParser = require('cookie-parser');
+
+const saltRounds = 10;
 
 // auth
 router.use(cookieParser());
@@ -42,8 +45,9 @@ passport.use(new LocalStrategy(
   }
 ));
 
-function comparePassword(text, storedPassword){
-  return (text === storedPassword);
+function comparePassword(password, hash, callback){
+  // Load hash from your password DB.
+  bcrypt.compare(password, hash, callback(err, res); );
 }
 
 function ensureAuthenticated(req, res, next){
@@ -65,17 +69,23 @@ router.post('/signup', function(req, res) {
       return done(null, false, {message: 'problem querying the database'})
     }
 
-    // console.log("results: ", results.rowCount)
-    if(results.rowCount > 1){ return done(null, false, {message:"the username already exists"});  }
-    var timestamp = 'NULL';
-    var queryString = "INSERT INTO profile (picture, bio, username, password, creation, email) VALUES (NULL,'"+req.body.bio+"','"+req.body.username+"','"+req.body.password+"',"+timestamp+",'"+req.body.email+"');";
-    queryString = queryString.replace(/'undefined'/g, "NULL")
-    console.log("queryString: ", queryString);
-    db(queryString, function(err, results){
-       if(err){ console.log("auth.controller.js: ", err); return res.send({message:"failed"})  }
-      res.send({ message:"success", token:"AAAA"  });
+    // hash the password
+    bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+      if(err){ console.log(err); return done(null, false, {message: "problem hashing the password"}); }
+
+      // store the hash in a db
+      if(results.rowCount > 1){ return done(null, false, {message:"the username already exists"});  }
+      var timestamp = 'NULL';
+      var queryString = "INSERT INTO profile (picture, bio, username, password, creation, email) VALUES (NULL,'"+req.body.bio+"','"+req.body.username+"','"+ hash +"',"+timestamp+",'"+req.body.email+"');";
+      queryString = queryString.replace(/'undefined'/g, "NULL")
+      console.log("queryString: ", queryString);
+      db(queryString, function(err, results){
+         if(err){ console.log("auth.controller.js: ", err); return res.send({message:"failed"})  }
+        res.send({ message:"success", token:"AAAA"  });
+      })
     })
-  })
+
+  });
 });
 
 router.get('/signout', function(req, res){
