@@ -26,25 +26,25 @@ class mapView extends Component {
           style={styles.map}
           showsUserLocation={true}
           onPress={(event) => {
-            var newMarkerObject = {
-              position: event.nativeEvent.coordinate,
+            const id = `${event.nativeEvent.coordinate.longitude}:${event.nativeEvent.coordinate.longtiude}`;
+            const newMarkerObject = {
+              id: id,
+              longitude: event.nativeEvent.coordinate.longitude,
+              latitude: event.nativeEvent.coordinate.latitude,
               name: 'name',
               review: 'review',
               code:'code'
             }
             this.setState({markers: this.state.markers.concat([newMarkerObject])});
-            console.log( this.state.markers)
             createMarker(newMarkerObject, this.state.id);
           }}
           >
           {this.state.markers.map(marker=>(
             <MapView.Marker
-            coordinate={{
-              longitude: marker.longitude,
-              latitude: marker.latitude
-            }}
-            title={marker.name}
-            description={marker.review}
+              key={marker.id}
+              coordinate={{longitude:marker.longitude, latitude:marker.latitude}}
+              title={marker.name}
+              description={marker.review}
               />
           ))}
         </MapView>

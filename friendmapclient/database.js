@@ -54,7 +54,7 @@ export function signup(username, password, email){
 
 // --------------------------- start markers ----------------------------------------
 export function createMarker(marker, userid){
-  console.log("starting the createMarker");
+  console.log("starting the createMarker marker: ", marker);
   return fetch(`${domainName}:${port}/markers/create`, {
     method: 'POST',
     headers: {
