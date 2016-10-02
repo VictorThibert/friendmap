@@ -3,7 +3,7 @@ import Button from 'react-native-button';
 import Hr from 'react-native-hr';
 import { AppRegistry, Text, Image, View, StyleSheet, TextInput, ScrollView, Navigator, AlertIOS } from 'react-native';
 
-import BackgroundImage from "./BackgroundImage";
+import BackgroundImage from "./components/BackgroundImage";
 
 
 class friendmapclient extends Component {
@@ -26,7 +26,7 @@ class friendmapclient extends Component {
 
 
 class loginView extends Component {
- 
+
   constructor(props) {
     super(props);
     this.state = {
@@ -37,7 +37,7 @@ class loginView extends Component {
       auth: 'Unauthorized'
     };
   }
-  
+
   sendLogin(username, password){
       console.log("INFO //////////////////////////////////////////////////////////////////////////////////////////: ", username, password)
       fetch('http://45.55.166.191:3020/auth/signin', {
@@ -51,16 +51,16 @@ class loginView extends Component {
           password: password,
         })
       })
-        .then((response) => { 
+        .then((response) => {
             console.log("11111111111",response._bodyText)
             this.setState({auth: response});
             console.log("---------------------------------", response._bodyText.message)
       })
-        .catch((error) => console.log("INFOERROR: ", error));  
-      
+        .catch((error) => console.log("INFOERROR: ", error));
+
 //       this.goToNext();
     }
-  
+
   goToNext() {
     console.log(58, this.state.auth)
     this.props.navigator.push({
@@ -68,7 +68,7 @@ class loginView extends Component {
       component: mapView
     });
   }
-  
+
   _handlePress(event) {
     let username=this.state.username;
     let password=this.state.password;

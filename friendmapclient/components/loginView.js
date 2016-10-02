@@ -1,5 +1,5 @@
 
-import BackgroundImage from "../BackgroundImage";
+import BackgroundImage from "./BackgroundImage";
 import React, { Component } from 'react';
 import { AlertIOS, Modal, View, Text, TextInput} from 'react-native'
 import Button from 'react-native-button';
