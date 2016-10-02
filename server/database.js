@@ -1,5 +1,5 @@
-
-var pg = require('pg').Pool;
+var pg = require('pg');
+var Pool = require('pg').Pool;
 
 //config of the connection
 var config = {
