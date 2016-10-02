@@ -13,11 +13,13 @@ var config = {
 
 // export function that can be used to make a generic query and a callback
 module.exports = function(queryString, callback){
+  console.log("going to start connecting to the database");
+  var client = new pg.Client();
   pg.connect(config, function(err, client, done){
     if(err){
       console.error('could not connect to cockroachdb', err);
       done();
-    }
+    }else console.log("connected to cockroachdb");
     client.query(queryString, callback);
   })
 }

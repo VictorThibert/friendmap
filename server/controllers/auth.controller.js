@@ -19,12 +19,14 @@ router.use(require('express-session')({
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
+    console.log("starting passport middleware");
     var queryString = "select * from profile where username = '" + username +"'";
+    console.log("going to query db'" + queryString + "'");
     db(queryString, function(err, results){
       if (err){
         console.log("got an error: ", err);
         return done(null, false, {message: 'problem querying the database'})
-      }
+      }else{ console.log("got the result of the query"); }
 
       // console.log("results: ", results.rowCount)
       if(results.rowCount == 0){ return done(null, false, {message:"the username and password does not exist"});  }
