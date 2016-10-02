@@ -5,7 +5,7 @@ var router = express.Router();
 var db = require("../database");
 
 router.post('/create', function(req, res) {
-  var queryString = "insert into location (profileid, name, review, longitude, latitude, code) values ("+req.body.profileid+",'"+req.body.name+"','"+req.body.review+"',"+req.body.longitude+","+req.body.latitude+",'"+req.body.code+"')";
+  var queryString = "insert into location (profileid, name, review, longitude, latitude, code) values ("+req.user.id+",'"+req.body.name+"','"+req.body.review+"',"+req.body.longitude+","+req.body.latitude+",'"+req.body.code+"')";
   console.log(queryString);
   db(queryString, function(err, results){
     if(err){ console.log("err: ", err); return res.send({message:"failed"}); }
@@ -17,7 +17,7 @@ router.post('/create', function(req, res) {
 
 // this function will get all the markers for this user
 router.get('/getForUser', function(req, res) {
-  var queryString = "select * from location where profileId = " + req.headers.id;
+  var queryString = "select * from location where profileId = " + req.user.id;
   console.log("queryString: ", queryString);
   db(queryString, function(err, results){
     if(err){ console.log("err: ", err); return res.send({message:"failed"}); }
@@ -28,10 +28,8 @@ router.get('/getForUser', function(req, res) {
 // this will get all the locations from all the friends
 router.get('/getAll', function(req, res){
   // get all the friends
-  console.log("req.headers: ", req.headers) ;
-  var subQuery = "select friendID from friends where id = " + req.headers.id;
-  var queryString = "select * from location where profileid in (" + subQuery + ") or profileid = " + req.headers.id;
-  console.log("req.headers: ", req.headers);
+  var subQuery = "select friendID from friends where id = " + req.user.id;
+  var queryString = "select * from location where profileid in (" + subQuery + ") or profileid = " + req.user.id;
 
   console.log("queryString: ", queryString);
   db(queryString, function(err, results){

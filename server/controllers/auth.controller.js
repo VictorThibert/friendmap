@@ -27,9 +27,11 @@ function comparePassword(password, hash, callback){
 
 /** this is middleware that will go to the next middleware if the user is authenticated, and will
   * respond saying the user is not authenticated if not.
+  * It will deserialize the token and put the info in req.user
   */
 function ensureAuthenticated(req, res, next){
   jwt.verify(req.body.token || req.headers.token, JWT_SECRET, function(err, decoded) {
+    req.user = decoded;
     if(err) return res.send("user not logged in");
     else return next();
   });
@@ -104,15 +106,7 @@ router.post('/signup', function(req, res) {
         if(err){ console.log("auth.controller.js: ", err); return res.send({message:"failed"})  }
 
         console.log("inserted element in table results: ", results);
-        const user = {
-          username:req.body.username,
-          password: hash,
-          timestamp: timestamp,
-          email: req.body.email
-        }
-
-        var token = jwt.sign(user, JWT_SECRET, { expiresIn: 24 * 60 * 60});
-        res.send({ success:true, message:"success", token});
+        res.send({ success:true, message:"success"});
       })
     })
   });
