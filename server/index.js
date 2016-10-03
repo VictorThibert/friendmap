@@ -7,7 +7,7 @@ var morgan = require('morgan')
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy;
 
-var auth = require("./controllers/auth.controller");
+var auth = require("./controllers/auth");
 
 
 // -------------------------------------------------- start middleware --------------------------------------------------
@@ -27,8 +27,8 @@ app.use(morgan('combined'))
 
 // handle auth
 app.use('/auth', auth.router);
-app.use('/social/', auth.ensureAuthenticated, require('./controllers/social.controller.js'))
-app.use('/markers/', auth.ensureAuthenticated, require('./controllers/markers.controller.js'))
+app.use('/social/', auth.ensureAuthenticated, require('./controllers/social'))
+app.use('/markers/', auth.ensureAuthenticated, require('./controllers/markers'))
 
 
 // handle friends
