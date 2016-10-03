@@ -1,7 +1,6 @@
 
 
-// var domainName = 'http://45.55.166.191';
-var domainName = 'http://localhost';
+var domainName = 'http://45.55.166.191';
 var port = 3020
 
 // --------------------------- start auth --------------------------------------
