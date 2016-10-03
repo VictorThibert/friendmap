@@ -54,8 +54,6 @@ export function signup(username, password, email){
 
 // --------------------------- start markers ----------------------------------------
 export function createMarker(marker, token){
-  console.log("starting the createMarker marker: ", marker);
-  console.log("createMarker - token: ", token);
   return fetch(`${domainName}:${port}/markers/create`, {
     method: 'POST',
     headers: {
@@ -73,12 +71,7 @@ export function createMarker(marker, token){
   }).done(function(){ console.log("finished create maker");  });
 }
 
-export function getMyMarkers(userid){
-  // TODO
-}
-
 export function getAllMarkers(token){
-  console.log("starting the createMarker: ", token)
   return fetch(`${domainName}:${port}/markers/getAll`, {
     method: 'GET',
     headers: {
@@ -104,7 +97,7 @@ export function deleteMarker(markerid){
 
 // --------------------------- start social ----------------------------------------
 
-export function followUser(userid, friendId){
+export function followUser(token, friendId){
   return fetch(`${domainName}:${port}/social/add`, {
     method: 'GET',
     headers: {
@@ -112,7 +105,7 @@ export function followUser(userid, friendId){
       'Content-Type': 'application/json',
     },
     headers: JSON.stringify({
-      userid: userid,
+      token: token,
       friendId: friendId
     })
   })
