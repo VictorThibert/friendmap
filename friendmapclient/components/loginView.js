@@ -6,7 +6,7 @@ import Button from 'react-native-button';
 import styles from '../styles.js'
 
 import mapView from './mapView'
-import {signup} from '../database'
+import {signIn} from '../database'
 import RegisterModal from './registerModal'
 
 
@@ -30,10 +30,11 @@ class loginView extends Component {
         name: 'mapView',
         component: mapView,
         passProps: {
-          id: this.state.id
+          token: this.state.token
         }
       });
-      this.props.id = this.state.id
+      console.log("this.state.token: ", this.state.token);
+      this.props.token = this.state.token;
     }
     else AlertIOS.alert('Login failed');
   }
@@ -48,20 +49,13 @@ class loginView extends Component {
 
   sendLogin(username, password){
     console.log("sendLogin, username, password - ", username, password)
-    fetch('http://45.55.166.191:3020/auth/signin', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      })
-    })
+    signIn(username, password)
     .then((response) => {
-      if(response._bodyText !== "Unauthorized")
-        this.state.id = JSON.parse(response._bodyText).id;
+      if(response._bodyText !== "Unauthorized"){
+        console.log("response._bodyText: ", response._bodyText);
+        this.state.token = JSON.parse(response._bodyText).token;
+        console.log("the token is: ", this.state.token);
+      }
       this.goToNext(response._bodyText);
     })
     .catch((error) => console.log(error))

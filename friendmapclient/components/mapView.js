@@ -12,10 +12,12 @@ class mapView extends Component {
     this.state = {
       markers: [],
       i: 0,
-      id:this.props.navigator.navigationContext.currentRoute.passProps.id
+      token:this.props.navigator.navigationContext.currentRoute.passProps.token
     };
-    getAllMarkers(this.props.navigator.navigationContext.currentRoute.passProps.id)
-      .then((response) => { this.setState({markers : JSON.parse(response._bodyText)}); })
+    getAllMarkers(this.props.navigator.navigationContext.currentRoute.passProps.token)
+      .then((response) => {
+        this.setState({markers : JSON.parse(response._bodyText)});
+      })
       .catch((error) => { console.error(error); })
   }
 
@@ -35,8 +37,9 @@ class mapView extends Component {
               review: 'review',
               code:'code'
             }
+            console.log("state: ", this.state);
             this.setState({markers: this.state.markers.concat([newMarkerObject])});
-            createMarker(newMarkerObject, this.state.id);
+            createMarker(newMarkerObject, this.state.token);
           }}
           >
           {this.state.markers.map(marker=>(

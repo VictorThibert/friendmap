@@ -1,6 +1,7 @@
 
 
-var domainName = 'http://45.55.166.191';
+// var domainName = 'http://45.55.166.191';
+var domainName = 'http://localhost';
 var port = 3020
 
 // --------------------------- start auth --------------------------------------
@@ -26,7 +27,7 @@ export function signOut(id){
       'Content-Type': 'application/json',
     },
     header: JSON.stringify({
-      id: id,
+      id: id
     })
   })
 }
@@ -53,8 +54,9 @@ export function signup(username, password, email){
 
 
 // --------------------------- start markers ----------------------------------------
-export function createMarker(marker, userid){
+export function createMarker(marker, token){
   console.log("starting the createMarker marker: ", marker);
+  console.log("createMarker - token: ", token);
   return fetch(`${domainName}:${port}/markers/create`, {
     method: 'POST',
     headers: {
@@ -62,12 +64,12 @@ export function createMarker(marker, userid){
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      profileid: userid,
       name: marker.name,
       review: marker.review,
       longitude: marker.longitude,
       latitude: marker.latitude,
-      code: marker.code
+      code: marker.code,
+      token: token
     })
   }).done(function(){ console.log("finished create maker");  });
 }
@@ -76,14 +78,14 @@ export function getMyMarkers(userid){
   // TODO
 }
 
-export function getAllMarkers(userid){
-  console.log("starting the createMarker: ", userid, " typeof(userid): ", typeof(userid));
+export function getAllMarkers(token){
+  console.log("starting the createMarker: ", token)
   return fetch(`${domainName}:${port}/markers/getAll`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      id: userid
+      token: token
     }
   })
 }
