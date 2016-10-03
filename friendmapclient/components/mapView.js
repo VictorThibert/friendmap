@@ -15,9 +15,7 @@ class mapView extends Component {
       token:this.props.navigator.navigationContext.currentRoute.passProps.token
     };
     getAllMarkers(this.props.navigator.navigationContext.currentRoute.passProps.token)
-      .then((response) => {
-        this.setState({markers : JSON.parse(response._bodyText)});
-      })
+      .then((response) => this.setState({markers : JSON.parse(response._bodyText)}))
       .catch((error) => { console.error(error); })
   }
 
